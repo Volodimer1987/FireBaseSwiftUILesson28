@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        SignIn()
+        SignUp()
     }
 }
 
@@ -23,22 +23,28 @@ struct SignIn:View {
             Text("Sign In")
                 .font(.title)
                 .fontWeight(.black)
+                .padding(.bottom,10)
             
-            VStack(alignment:.leading,spacing: 15 ) {
-                
-            Text("Username")
-                .font(.callout)
-            TextField("Enter Your User Uame", text: $userName)
+            VStack(alignment:.leading,spacing: 10 ) {
+                Text("Username")
+                    .font(.system(size: 18))
+                TextField("Enter Your User Uame", text: $userName)
             }
+            .padding(.leading,15)
+            
             Divider()
                 .padding(.bottom,15)
+                .padding(.horizontal,15)
             
-            VStack(alignment:.leading,spacing: 15 ) {
-            Text("Password")
-                .font(.callout)
-            TextField("Enter Your Password", text: $userSername)
+            VStack(alignment:.leading,spacing: 10 ) {
+                Text("Password")
+                    .font(.system(size: 18))
+                TextField("Enter Your Password", text: $userSername)
             }
+            .padding(.leading,15)
+            
             Divider()
+                .padding(.horizontal,15)
             
             
             Button(action: {
@@ -51,7 +57,71 @@ struct SignIn:View {
                     .cornerRadius(30)
                     .padding(.top,30)
             })
-        
+            Text("(or)")
+                .padding(.top,30)
+                .font(.callout)
+                .opacity(0.8)
+            
+            HStack {
+                Text("Dont have any account?")
+                    .font(.callout)
+                    .opacity(0.8)
+                Button(action: {
+                    //
+                }
+                , label: {
+                    Text("Sign Up")
+                        .font(.callout)
+                })
+            }.padding(.top,20)
+        }
+    }
+}
+
+struct SignUp:View {
+    
+    @State var userName = ""
+    @State var userSername = ""
+    
+    var body: some View {
+        VStack {
+            Text("Sign Up")
+                .font(.title)
+                .fontWeight(.black)
+                .padding(.bottom,10)
+            
+            VStack(alignment:.leading,spacing: 10 ) {
+                Text("Username")
+                    .font(.system(size: 18))
+                TextField("Enter Your User Uame", text: $userName)
+            }
+            .padding(.leading,15)
+            
+            Divider()
+                .padding(.bottom,15)
+                .padding(.horizontal,15)
+            
+            VStack(alignment:.leading,spacing: 10 ) {
+                Text("Password")
+                    .font(.system(size: 18))
+                TextField("Enter Your Password", text: $userSername)
+            }
+            .padding(.leading,15)
+            
+            Divider()
+                .padding(.horizontal,15)
+            
+            
+            Button(action: {
+                //
+            }, label: {
+                Text("Sign Up")
+                    .frame(width: 300, height: 40, alignment: .center)
+                    .background(Color.green)
+                    .foregroundColor(.white)
+                    .cornerRadius(30)
+                    .padding(.top,30)
+            })
         }
     }
 }
